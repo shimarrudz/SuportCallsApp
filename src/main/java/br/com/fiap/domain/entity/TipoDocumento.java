@@ -1,39 +1,42 @@
 package br.com.fiap.domain.entity;
 
+
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "TB_AREA", uniqueConstraints = {
-        @UniqueConstraint(name = "UK_NM_AREA", columnNames = {"NM_AREA"})
+@Table(name = "TB_TP_DOCUMENTO", uniqueConstraints = {
+        @UniqueConstraint( name = "UK_NM_TP_DOCUMENTO", columnNames = "NM_TP_DOCUMENTO")
 })
-public class Area {
+public class TipoDocumento {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE , generator = "SQ_AREA")
-    @SequenceGenerator(name = "SQ_AREA", sequenceName = "SQ_AREA")
-    @Column(name = "ID_AREA")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_TP_DOCUMENTO")
+    @SequenceGenerator( name = "SQ_TP_DOCUMENTO", sequenceName = "SQ_TP_DOCUMENTO")
+    @Column(name = "ID_TP_DOCUMENTO")
     private Long id;
 
-    @Column(name = "NM_AREA", nullable = false)
+    @Column(name = "NM_TP_DOCUMENTO", nullable = false)
     private String nome;
 
-    @Column(name = "DS_AREA")
+
+    @Column(name = "DS_TP_DOCUMENTO")
     private String descricao;
 
-    public Area() {
+    public TipoDocumento() {
     }
 
-    public Area(Long id, String nome, String descricao) {
+    public TipoDocumento(Long id, String nome, String descricao) {
         this.id = id;
         this.nome = nome;
         this.descricao = descricao;
     }
 
+
     public Long getId() {
         return id;
     }
 
-    public Area setId(Long id) {
+    public TipoDocumento setId(Long id) {
         this.id = id;
         return this;
     }
@@ -42,7 +45,7 @@ public class Area {
         return nome;
     }
 
-    public Area setNome(String nome) {
+    public TipoDocumento setNome(String nome) {
         this.nome = nome;
         return this;
     }
@@ -51,14 +54,15 @@ public class Area {
         return descricao;
     }
 
-    public Area setDescricao(String descricao) {
+    public TipoDocumento setDescricao(String descricao) {
         this.descricao = descricao;
         return this;
     }
 
+
     @Override
     public String toString() {
-        return "Area{" +
+        return "TipoDocumento{" +
                 "id=" + id +
                 ", nome='" + nome + '\'' +
                 ", descricao='" + descricao + '\'' +
